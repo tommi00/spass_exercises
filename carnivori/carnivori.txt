@@ -1,0 +1,29 @@
+begin_problem(carnivori).
+
+list_of_descriptions.
+  name({*Aristotele, Elenchi sofistici*}).
+  author({*tommi00*}).
+  status(unknown).
+  description({**}).
+end_of_list.
+
+list_of_symbols.
+  predicates[(M,1), (A,1), (C,1)].
+end_of_list.
+
+list_of_formulae(axioms).
+  formula(forall([x], implies(M(x), A(x)))).
+  formula(exists([x], and(A(x), C(x)))).
+end_of_list.
+
+list_of_formulae(conjectures).
+  formula(exists([x], and(M(x), C(x)))).
+end_of_list.
+
+list_of_settings(SPASS).
+  {*
+  set_flag(DocProof,1).
+  *}
+end_of_list.
+
+end_problem.
