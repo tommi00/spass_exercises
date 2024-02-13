@@ -1,0 +1,25 @@
+begin_problem(coccodrilli).
+
+list_of_descriptions.
+    name({*coccodrilli*}).
+    author({*tommi00*}).
+    status(unsatisfiable).
+    description({**}).
+end_of_list.
+
+
+list_of_symbols.
+    predicates[(N,1),(I,1),(C,1),(D,1)].
+end_of_list.
+
+list_of_formulae(axioms).
+    formula(forall([x], implies(N(x), I(x)))).
+    formula(forall([x], implies(C(x), not(D(x))))).
+    formula(forall([x], implies(I(x), D(x)))).
+end_of_list.
+
+list_of_formulae(conjectures).
+    formula(forall([x], implies(N(x), not(C(x))))).
+end_of_list.
+
+end_problem.
