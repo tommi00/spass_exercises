@@ -1,0 +1,43 @@
+begin_problem(animali).
+
+list_of_descriptions.
+    name({*Gli animali di Lewis Carroll*}).
+    author({*tommi00*}).
+    status(unsatisfiable).
+    description({**}).
+end_of_list.
+
+% A -> animali di questa casa
+% G -> gatti
+% L -> animale che ama guardare la luna
+% DOM -> animale domestico
+% D -> detestare
+% E -> evitare
+% C -> carnivoro
+% N -> notturno
+% T -> uccide topi
+% ME -> affeziona a me 
+% K -> canguri
+
+list_of_symbols.
+    predicates[(A,1),(G,1),(L,1),(DOM,1),(D,1),(E,1),(C,1),(N,1),(T,1),(ME,1),(K,1)].
+end_of_list.
+
+list_of_formulae(axioms).
+    formula(forall([x], implies(A(x), G(x)))).
+    formula(forall([x], implies(L(x), D(x)))).
+    formula(forall([x], implies(D(x), E(x)))).
+    formula(forall([x], implies(C(x), N(x)))).
+    formula(forall([x], implies(G(x), T(x)))).
+    formula(forall([x], implies(ME(x), A(x)))).
+    formula(forall([x], implies(K(x), DOM(x)))).
+    formula(forall([x], implies(T(x), C(x)))).
+    formula(forall([x], implies(D(x), not(ME(x))))).
+    formula(forall([x], implies(N(x), L(x)))).
+end_of_list.
+
+list_of_formulae(conjectures).
+    formula(forall([x], implies(K(x), E(x)))).
+end_of_list.
+
+end_problem.
