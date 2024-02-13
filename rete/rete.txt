@@ -1,0 +1,35 @@
+begin_problem(Rete).
+
+list_of_descriptions.
+  name({*Rete*}).
+  author({*tommi00*}).
+  status(unsatisfiable).
+  description({**}).
+end_of_list.
+
+list_of_symbols.
+  predicates[(L,2) , (I,1) , (F,1) , (C,1) , (H,1)].
+end_of_list.
+
+list_of_formulae(axioms).
+  formula(forall([x], equiv(I(x), and(exists([y], L(x,y)), not(exists([z], L(z,x))))))).
+  formula(forall([x], equiv(F(x), and(exists([y], L(y,x)), not(exists([z], L(x,z))))))).
+  formula(exists([x], I(x))).
+  formula(forall([x,y], implies(and(I(x),I(y)),equal(x,y)))).
+  formula(exists([x], F(x))).
+  formula(forall([x], equiv(C(x), and(not(I(x)), not(F(x)))))).
+  formula(forall([x], equiv(H(x), forall([y], implies(C(y), and(L(x,y), L(y,x))))))).
+end_of_list.
+
+list_of_formulae(conjectures).
+  formula(forall([x], implies(H(x),C(x)))).
+end_of_list.
+
+list_of_settings(SPASS).
+  {*
+  set_flag(PGiven,1).
+  set_flag(PProblem,0).
+  *}
+end_of_list.
+
+end_problem.
